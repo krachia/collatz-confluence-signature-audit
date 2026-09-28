@@ -1,0 +1,12 @@
+Data and figures in this repository are licensed under the
+Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+
+Scope (数据与图表):
+- paper/entropy_rep_A.csv, paper/entropy_rep_B.csv, paper/entropy_rep_C.csv
+- paper/m_distribution_check.csv
+- attacks/round9_out.txt, attacks/round9b_out.txt, attacks/round9c_out.txt, attacks/round10_out.txt
+- paper/figures/*.png
+
+Code (all *.py scripts) is licensed under the MIT license — see LICENSE.
+
+License text: https://creativecommons.org/licenses/by/4.0/
