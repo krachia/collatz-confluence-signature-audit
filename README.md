@@ -2,22 +2,25 @@
 
 Reproducibility package for the manuscript *"Structural Exclusion of Trajectory-Confluence Collatz Signatures within a Defined Design Space"*（《Collatz 轨线汇合型签名在限定设计空间内的结构性排除：三个屏障、一项熵审计与一类设计空间的边界》，投稿中）。
 
-本仓库与论文附录 A 的清单一一对应：**36 个实验与分析脚本、4 张图及其生成脚本、实验输出数据**。脚本与论文小节/附录的对应关系、预期输出与运行时间，见论文附录 A 的逐项列表。
+本仓库与论文附录 A 的清单一一对应：**38 个实验与分析脚本、4 张图及其生成脚本、实验输出数据**。脚本与论文小节/附录的对应关系、预期输出与运行时间，见论文附录 A 的逐项列表。全部文件的 MD5 校验和见 `md5sums.txt`。
 
 ## 目录结构
 
 ```
-attacks/                攻击实验（28 个脚本；论文 §3--§7 与附录 B）
+attacks/                攻击实验（30 个脚本；论文正文与附录）
 ├── round1--round9*     逐轮攻击实验（确定性种子，可完全复现）
 ├── round10_meeting_bound.py        相遇高度界校准网格（输出 round10_out.txt）
 ├── analyze_round10.py              由 round10_out.txt 复算校准常数（依赖 round10 输出）
 ├── round11_audit_owf.py / _pow.py / _prng.py   三方案最小复现审计（附录 B）
-└── round9_out.txt / round9b_out.txt / round9c_out.txt / round10_out.txt   代表性实验输出
+├── round12_bitlen_cyclekill.py    位长约束下 k 位重采样回绕（输出 round12_out.txt）
+├── verify_n6_margin.py            定理 1 条件余量核验（输出 verify_n6_margin_out.txt）
+└── round9_out.txt / round9b_out.txt / round9c_out.txt / round10_out.txt /
+    round12_out.txt / verify_n6_margin_out.txt                              代表性实验输出
 
-paper/                  熵估计与图表（7 个脚本 + 数据；论文 §5、§9 与附录 A）
+paper/                  熵估计与图表（8 个脚本 + 数据；论文正文与附录）
 ├── estimate_min_entropy.py          初测：k=64/128/256 熵点
 ├── estimate_min_entropy_large.py    初测：k=512/1024 熵点
-├── entropy_replication.py           表 3 主口径复测（每 k 20 次重复 × N=10,000）
+├── entropy_replication.py           表 1 主口径复测（每 k 20 次重复 × N=10,000）
 ├── check_m_distribution.py          固定 m 对照实验（KS 与量化 TV 输出）
 ├── verify_rem_condition.py          模 3 覆盖引理与 S_min 条件数值核查
 ├── audit_nonmeasured.py             非实测项审计（半压缩步数、窗口频率）
