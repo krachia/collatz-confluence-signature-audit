@@ -27,6 +27,7 @@ paper/                  熵估计与图表（8 个脚本 + 数据；论文正文
 ├── repro_run_all.py                 一键全量核查 runner（输出 repro_check_all.txt）
 ├── entropy_rep_A.csv / B / C        熵复测三档输出
 ├── m_distribution_check.csv         分布对照输出
+├── m_range_check.csv                配对空间极端区间概率（(C4) 数值表）
 └── figures/             4 张图（PNG）与生成脚本 make_figures.py（需 matplotlib）
 ```
 

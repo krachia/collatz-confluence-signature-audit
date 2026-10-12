@@ -8,7 +8,7 @@
 重复：每个 k 独立抽 20 组 m，每组两分布各 n=3000 样本。
 
 用法：python check_m_distribution.py --ks 64 128 256
-输出：m_distribution_check.csv + 屏幕汇总。
+输出：m_distribution_check.csv、m_range_check.csv + 屏幕汇总。
 seed 方案：base + k*101 + rep。
 """
 import argparse
@@ -165,6 +165,53 @@ def main():
         print(f"k={k}: KS mean={statistics.mean(ks_l):.4f} med={statistics.median(ks_l):.4f} "
               f"max={max(ks_l):.4f} | TV(q={args.qw}) mean={statistics.mean(tv_l):.4f} "
               f"max={max(tv_l):.4f} | p<0.05: {rej}/{len(sub)}")
+    # ===== m 的极端区间概率：配对空间集中度（v187 增补；支撑 3.2.4 的 (C4)）=====
+    print("\n===== m 的极端区间概率（配对空间集中度）=====")
+    RA_N = 1_000_000
+    RA_EPS = (0.25, 0.0625)
+    rng_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "m_range_check.csv")
+    rf = open(rng_path, "w", newline="", encoding="utf-8")
+    rw = csv.writer(rf)
+    rw.writerow(["metric", "mode", "k", "eps", "N",
+                 "p_exact", "p_upper", "obs_count", "obs_freq"])
+    for k in (128, 1024):
+        rnd = random.Random(20261013 + k)
+        lo = 1 << (k - 1)
+        Lk = lo
+        cnt = {("diff", e): 0 for e in RA_EPS}
+        cnt.update({("sum", e): 0 for e in RA_EPS})
+        ssum = {"diff": 0.0, "sum": 0.0}
+        for i in range(1, RA_N + 1):
+            a = lo + rnd.getrandbits(k - 1)
+            b = lo + rnd.getrandbits(k - 1)
+            cd = Lk - abs(a - b)
+            cs = min(a + b - (1 << k) + 1, (1 << (k + 1)) - (a + b) - 1)
+            ssum["diff"] += (cd - ssum["diff"]) / i
+            ssum["sum"] += (cs - ssum["sum"]) / i
+            for e in RA_EPS:
+                if cd < e * Lk:
+                    cnt[("diff", e)] += 1
+                if cs < e * Lk:
+                    cnt[("sum", e)] += 1
+        for mode in ("diff", "sum"):
+            for e in RA_EPS:
+                delta = e * Lk
+                if mode == "diff":
+                    pex = e * e * (1.0 + 1.0 / float(delta))
+                else:
+                    pex = e * e * (1.0 - 1.0 / float(delta))
+                pu = e * e + 2.0 ** (-(k - 1))
+                c_ = cnt[(mode, e)]
+                rw.writerow(["tail", mode, k, e, RA_N,
+                             "%.6g" % pex, "%.6g" % pu, c_, "%.6g" % (c_ / RA_N)])
+                print("  mode=%s k=%d eps=%-7g exact=%.6g upper=%.6g obs=%.6g (%d/%d)"
+                      % (mode, k, e, pex, pu, c_ / RA_N, c_, RA_N))
+        e_c = (2.0 / 3.0) * float(Lk)
+        rw.writerow(["EC", "diff", k, "", RA_N, "%.6g" % e_c, "", "", "%.6g" % ssum["diff"]])
+        rw.writerow(["EC", "sum", k, "", RA_N, "%.6g" % e_c, "", "", "%.6g" % ssum["sum"]])
+        print("  E[C] k=%d: MC=%.6g  公式 (2/3)*2^(k-1)=%.6g" % (k, ssum["diff"], e_c))
+        print("        k=%d: MC=%.6g  公式 (2/3)*2^(k-1)=%.6g" % (k, ssum["sum"], e_c))
+    rf.close()
     print("done")
 
 
