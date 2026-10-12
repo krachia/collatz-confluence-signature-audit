@@ -2,8 +2,8 @@
 44b964a70a383c74c2bdd9605c4b3aa9  .gitignore
 9921534cf6a93332dcf9fbea838437ac  LICENSE
 8c433e011fe18b923a6fbdc9fa6e705b  LICENSE-DATA
-3e0df92d5b737af2fdbf98f3d9d34ee5  README.md
-0aa42129cb5cd213c21bbd2d8309be03  attacks/analyze_round10.py
+7fc092081dfd2f1fa512d4ae604a53eb  README.md
+be7b683b98734a2687e1373df55e564c  attacks/analyze_round10.py
 0e7f9ddaf9810c3aa8872bf6c162ddd8  attacks/round10_meeting_bound.py
 1574f04324e04ba8b21b8e6260f111bd  attacks/round10_out.txt
 ce9ac696f1e992b8d600e81ac6b1861f  attacks/round11_audit_owf.py
@@ -40,7 +40,7 @@ e24019b5b1c505861746b65597e0b601  attacks/round9c_out.txt
 4b1d8872c97301f274b16fa9cd046fb9  attacks/verify_n6_margin.py
 c308bb9bd706660ff84ecc1170da72c2  attacks/verify_n6_margin_out.txt
 c233d2f434e1a5ac792c0cb758c6dd0e  paper/audit_nonmeasured.py
-f85bd267f8804e45e9d2cf0205bebed1  paper/check_m_distribution.py
+02da9b48e49339954610e4e9dd804b0e  paper/check_m_distribution.py
 9b8f222016eb03cc304ba71b1cf68ac7  paper/entropy_rep_A.csv
 4d5be50c464ef1ce7197db4220ee300b  paper/entropy_rep_B.csv
 774c73fa48666b07446140373ce280e6  paper/entropy_rep_C.csv
@@ -53,5 +53,6 @@ e54fd6e85addf143b8ed9d07363a34b6  paper/figures/fig3_d_entropy.png
 a8dfb5fc32003ddbdaa1a9e797812bef  paper/figures/fig4_entropy_vs_k.png
 ff6d6f2ef7c988172334ee07511e8e69  paper/figures/make_figures.py
 344d21acfa9541623b6e4aa65e3215eb  paper/m_distribution_check.csv
+525c66fff03fdce8bd8936fb3dfb085d  paper/m_range_check.csv
 e120bf3d5703597981d1545f4ee37f06  paper/repro_run_all.py
 9d5d7742edc6c9abde68e6d36c46c2bd  paper/verify_rem_condition.py
