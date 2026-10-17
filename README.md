@@ -1,6 +1,6 @@
-# Collatz 轨线汇合型签名的结构排除研究 · 复现材料
+# Collatz 轨线汇合型签名的条件性排除 · 复现材料
 
-Reproducibility package for the manuscript *"Structural Exclusion of Trajectory-Confluence Collatz Signatures within a Defined Design Space"*（《Collatz 轨线汇合型签名在限定设计空间内的结构性排除：三个屏障、一项熵审计与一类设计空间的边界》，投稿中）。
+Reproducibility package for the manuscript *"Conditional Exclusion of Trajectory-Confluence Collatz Signatures: Structural Obstacles within Design Space S"*（《Collatz 轨线汇合型签名的条件性排除：设计空间 S 内的结构障碍》，投稿中）。
 
 本仓库与论文附录 A 的清单一一对应：**38 个实验与分析脚本、4 张图及其生成脚本、实验输出数据**。脚本与论文小节/附录的对应关系、预期输出与运行时间，见论文附录 A 的逐项列表。全部文件的 MD5 校验和见 `md5sums.txt`。
 

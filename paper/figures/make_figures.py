@@ -1,7 +1,7 @@
 """
 make_figures.py — 生成论文核心图表 (paper/figures/)
 
-fig1_z_distribution.png  漏斗: 汇合点 z 的位长分布 (k=20 vs k=256)
+fig1_z_distribution.png  低空汇聚: 汇合点 z 的位长分布 (k=20 vs k=256)
 fig2_attack_cost.png     攻击成本 vs k (H7 同分布采样命中数, 实测数据)
 fig3_d_entropy.png       d 值分布 (k=128 同分布采样, 有效取值 ~10^3)
 """
@@ -54,7 +54,7 @@ for ax, data, title in ((axes[0], z20, 'k=20'), (axes[1], z256, 'k=256')):
     ax.set_xlabel('z 的位长'); ax.set_ylabel('密钥数')
     ax.axvline(statistics.median(bl), color='red', ls='--', label=f'中位 {statistics.median(bl):.0f}')
     ax.legend()
-fig.suptitle('漏斗结构: 起点越大, 汇合点仍然极低 (4-2-1 循环附近)', fontsize=12)
+fig.suptitle('低空汇聚结构: 起点越大, 汇合点仍然极低 (4-2-1 循环附近)', fontsize=12)
 fig.tight_layout()
 fig.savefig(os.path.join(OUT, 'fig1_z_distribution.png'), dpi=150)
 plt.close(fig)

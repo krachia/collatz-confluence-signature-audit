@@ -2,7 +2,7 @@
 44b964a70a383c74c2bdd9605c4b3aa9  .gitignore
 9921534cf6a93332dcf9fbea838437ac  LICENSE
 8c433e011fe18b923a6fbdc9fa6e705b  LICENSE-DATA
-7fc092081dfd2f1fa512d4ae604a53eb  README.md
+b3d930951efe6cb996ea49c0a4a27cf7  README.md
 be7b683b98734a2687e1373df55e564c  attacks/analyze_round10.py
 0e7f9ddaf9810c3aa8872bf6c162ddd8  attacks/round10_meeting_bound.py
 1574f04324e04ba8b21b8e6260f111bd  attacks/round10_out.txt
@@ -51,7 +51,7 @@ e844a555b623c2c1869362780f4f50cf  paper/figures/fig1_z_distribution.png
 5780bdb838df46e44b1b1575831d0c64  paper/figures/fig2_attack_cost.png
 e54fd6e85addf143b8ed9d07363a34b6  paper/figures/fig3_d_entropy.png
 a8dfb5fc32003ddbdaa1a9e797812bef  paper/figures/fig4_entropy_vs_k.png
-ff6d6f2ef7c988172334ee07511e8e69  paper/figures/make_figures.py
+319df9eaa1eb3f974c17fe4de1bdc028  paper/figures/make_figures.py
 344d21acfa9541623b6e4aa65e3215eb  paper/m_distribution_check.csv
 525c66fff03fdce8bd8936fb3dfb085d  paper/m_range_check.csv
 e120bf3d5703597981d1545f4ee37f06  paper/repro_run_all.py
