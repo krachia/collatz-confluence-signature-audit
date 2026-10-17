@@ -2,7 +2,7 @@
 
 Reproducibility package for the manuscript *"Conditional Exclusion of Trajectory-Confluence Collatz Signatures: Structural Obstacles within Design Space S"*（《Collatz 轨线汇合型签名的条件性排除：设计空间 S 内的结构障碍》，投稿中）。
 
-本仓库与论文附录 A 的清单一一对应：**38 个实验与分析脚本、4 张图及其生成脚本、实验输出数据**。脚本与论文小节/附录的对应关系、预期输出与运行时间，见论文附录 A 的逐项列表。全部文件的 MD5 校验和见 `md5sums.txt`。
+本仓库与论文附录 A 的清单一一对应：**38 个实验与分析脚本、4 张图及其生成脚本、实验输出数据**。脚本与论文小节/附录的对应关系、预期输出与运行时间，见论文附录 A 的逐项列表。全部文件的原始 MD5 校验和见 `md5sums.txt`；复跑对照用的数值校验和见 `md5sums_numeric.txt`（见下节）。
 
 ## 目录结构
 
@@ -29,13 +29,26 @@ paper/                  熵估计与图表（8 个脚本 + 数据；论文正文
 ├── m_distribution_check.csv         分布对照输出
 ├── m_range_check.csv                配对空间极端区间概率（(C4) 数值表）
 └── figures/             4 张图（PNG）与生成脚本 make_figures.py（需 matplotlib）
+
+normalize_outputs.py    数值校验和工具（剥离计时字段、统一行尾；见下节）
 ```
 
 ## 环境与运行
 
-- Python ≥ 3.10；除 `paper/figures/make_figures.py`（需要 matplotlib）外，**全部脚本仅用标准库**，Windows/Linux 通用。
+- Python ≥ 3.10；除 `paper/figures/make_figures.py`（需要 matplotlib）外，**全部脚本仅用标准库**，Windows/Linux 通用。`make_figures.py` 另需中文字体（默认 `SimHei`；Linux 下需替换为可用字体，否则图内中文会回退）。
 - 单个脚本：`cd attacks`（或 `cd paper`）后执行 `python <脚本名>.py`。
 - 一键全量核查：`cd paper && python repro_run_all.py`（运行全部实验脚本，约 30 分钟；其中熵复测为 k=64 快速口径；完整五档结果见 `entropy_rep_*.csv`）。
+
+## 数值校验和（复跑对照）
+
+部分输出文件含运行计时字段（`round9_out.txt`、`round9c_out.txt`、`round10_out.txt`、`round12_out.txt`、`entropy_rep_*.csv`、`m_distribution_check.csv`），逐字节 MD5 随机器与负载变化。复跑后请用数值口径核验：
+
+```bash
+python normalize_outputs.py --check    # 逐项核验 11 个 txt/csv 输出
+python normalize_outputs.py --diff     # 不一致时定位首个差异行（需要 git）
+```
+
+该工具按固定规则剥离计时字段、统一行尾后计算 MD5，结果见 `md5sums_numeric.txt`；`md5sums.txt` 为原始快照（含计时字段）。测试环境：CPython 3.13 / Windows 10；跨 Python 版本或跨平台时，以 `--check` 的输出为准。
 
 ## 数据、确定性与口径
 

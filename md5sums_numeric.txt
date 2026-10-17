@@ -1,0 +1,11 @@
+7609c16230aee04c7c27b54dee24d402  attacks/round10_out.txt
+df267fe1af8b1dceec28fb6f20684144  attacks/round12_out.txt
+d1858616967c0a64223354f9e6c90aa4  attacks/round9_out.txt
+55066171d49c5a5fd895d9732ce2d16b  attacks/round9b_out.txt
+0598d02ccff706c1d613837aa61b1815  attacks/round9c_out.txt
+c308bb9bd706660ff84ecc1170da72c2  attacks/verify_n6_margin_out.txt
+98ac0bd064ca13e9eb5b99573a7315f9  paper/entropy_rep_A.csv
+8d8c99b9826131fdbb4676a41e36a0ae  paper/entropy_rep_B.csv
+ecd087c4ef3815e6d4baf23e2e1dfa13  paper/entropy_rep_C.csv
+4f3202f9f891c72d6d2f05cf8091fb6e  paper/m_distribution_check.csv
+525c66fff03fdce8bd8936fb3dfb085d  paper/m_range_check.csv

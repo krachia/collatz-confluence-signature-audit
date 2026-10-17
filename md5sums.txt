@@ -2,14 +2,14 @@
 44b964a70a383c74c2bdd9605c4b3aa9  .gitignore
 9921534cf6a93332dcf9fbea838437ac  LICENSE
 8c433e011fe18b923a6fbdc9fa6e705b  LICENSE-DATA
-b3d930951efe6cb996ea49c0a4a27cf7  README.md
+4ed24bb7295d92f8a8267aeb34e682c2  README.md
 be7b683b98734a2687e1373df55e564c  attacks/analyze_round10.py
 0e7f9ddaf9810c3aa8872bf6c162ddd8  attacks/round10_meeting_bound.py
 1574f04324e04ba8b21b8e6260f111bd  attacks/round10_out.txt
 ce9ac696f1e992b8d600e81ac6b1861f  attacks/round11_audit_owf.py
 32c64bf247784b437218ce8087653185  attacks/round11_audit_pow.py
 0ad46843d722b13be407d4930cb6bb26  attacks/round11_audit_prng.py
-9724a98ba9b61ccb48bb5bc9bf24813d  attacks/round12_bitlen_cyclekill.py
+f473c922b4bcb908aef9dd506c2b92c4  attacks/round12_bitlen_cyclekill.py
 ec88c0d8cea6cfc16b27306cc8f2654f  attacks/round12_out.txt
 dfb61617c27572d39af0daabfe9b8ee5  attacks/round1_confluence.py
 cb4fbeb703f35b10a9c68cd64c2cb72b  attacks/round1_h5_cyclekill.py
@@ -39,6 +39,8 @@ e24019b5b1c505861746b65597e0b601  attacks/round9c_out.txt
 5ecb59ad9db29d2772179ebe1929545e  attacks/round9c_repeat_stats.py
 4b1d8872c97301f274b16fa9cd046fb9  attacks/verify_n6_margin.py
 c308bb9bd706660ff84ecc1170da72c2  attacks/verify_n6_margin_out.txt
+1604200dc04480d576639683f2cd85f6  md5sums_numeric.txt
+5da270c4890b826829445435ecb843fa  normalize_outputs.py
 c233d2f434e1a5ac792c0cb758c6dd0e  paper/audit_nonmeasured.py
 02da9b48e49339954610e4e9dd804b0e  paper/check_m_distribution.py
 9b8f222016eb03cc304ba71b1cf68ac7  paper/entropy_rep_A.csv

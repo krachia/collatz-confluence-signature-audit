@@ -12,6 +12,7 @@
 输出同时写入 round12_out.txt。
 """
 import io
+import os
 import random
 import sys
 import time
@@ -100,5 +101,5 @@ for k in (64, 128, 256, 1024):
     P("k=%4d: 攻破 %2d/20 | 首样本命中 %2d/20 | 平均采样 %.1f 次 | 最大采样 %d 次"
       % (k, ok, first_try, samples_total / 20.0, max_tries))
 P("总耗时 %.1f s（确定性种子；每次采样 = 两个 k 位轨线模拟）" % (time.time() - t_start))
-io.open(r"D:/projects/Hermes_Test/collatz_crypto/attacks/round12_out.txt", "w",
-        encoding="utf-8", newline="\n").write("\n".join(buf) + "\n")
+_out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "round12_out.txt")
+io.open(_out, "w", encoding="utf-8", newline="\n").write("\n".join(buf) + "\n")
